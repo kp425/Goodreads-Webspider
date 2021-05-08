@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 5433:3306
+    volumes:
+      - mysqldb:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d/
+    env_file:
+      - ./db/mysql.env
+
+
+volumes:
+  mysqldb:

@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  spider:
+   # tty: true
+    command: scrapy crawl actress --loglevel ERROR -a url=https://jav.guru/actress/uehara-ai/
+    build:
+      context: ./javguru
+    env_file:
+      - ./javguru/.env
+
+#   db:
+#     image: mysql:8.0
+#     restart: always
+#     ports:
+#       - 5433:3306
+#     volumes:
+#       - mysqldb:/var/lib/mysql
+#       - ./db/mysql/init:/docker-entrypoint-initdb.d/
+#     env_file:
+#       - ./db/mysql/mysql.env
+# volumes:
+#   mysqldb:
